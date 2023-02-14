@@ -1,0 +1,34 @@
+{
+  "userdata": [
+    {
+      "FirsName": "vishal",
+      "LastName": "subhash",
+      "EmailId": "vishakl@gamial.com",
+      "Password": "123456",
+      "ConfirmPassword": "123456",
+      "Gender": "",
+      "Age": "22",
+      "PhoneNumber": "12345679",
+      "street": "M society",
+      "city": "Munm",
+      "state": "MH",
+      "pinCode": "40076",
+      "id": 1
+    },
+    {
+      "FirsName": "vishal",
+      "LastName": "sdkjbc",
+      "EmailId": "dsvsdv@ga",
+      "Password": "dcvdzxc",
+      "ConfirmPassword": "ascasc",
+      "Gender": "1",
+      "Age": "18",
+      "PhoneNumber": "51651561",
+      "street": "cxxcsa",
+      "city": "",
+      "state": "",
+      "pinCode": "",
+      "id": 2
+    }
+  ]
+}

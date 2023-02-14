@@ -1,0 +1,16 @@
+
+#inputBar{
+  width: 30vw;
+  border-radius: 2vw;
+  height: 5vh;
+}
+#searchdiv{
+  margin-left: 25%;
+  margin-top: 1%;
+
+}
+.Buttons{
+  border-radius: 1vw;
+  height: 5vh;
+  margin-left: 0.3vw;
+}

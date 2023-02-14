@@ -1,0 +1,43 @@
+/* #addingnotediv{
+  width: 20%;
+  display: flex;
+  margin-left: 35%;
+  margin-top: 2vh;
+  border: 2px solid navy;
+  padding: 1vw;
+  border-radius: 2vw;
+  background-color: aliceblue;
+}
+
+#newnotesTitle{
+  font-size: larger;
+  font-weight: bolder;
+}
+#textArea1{
+  border-radius: 0.8vw;
+} */
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 40%;
+  margin-right: 5%;
+}
+#AddNotesDiv{
+  margin-left: 35%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+#Buttons{
+  margin-right: 5vw;
+}
+p{
+  color: red;
+  font-size: 12px;
+}

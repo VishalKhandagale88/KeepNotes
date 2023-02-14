@@ -1,0 +1,78 @@
+<!-- <div id="addingnotediv">
+  <div>
+    <p id="newnotesTitle">Add New Notes</p>
+    <section>
+      <label>Title : </label><br>
+      <input id="notesTitle" type="text" placeholder="title of note"  ><br>
+      <label>Category : </label><br>
+      <input id="category" type="text" placeholder="Category" ><br>
+      <label>Content : </label><br>
+      <textarea id="textArea1" type="text"  cols="40" rows="10" placeholder="write down content here" ></textarea>
+      <button type="submit"  >add notes</button>
+    </section>
+  </div>
+</div> -->
+<div id="AddNotesDiv">
+  <form #NotesAddingData="ngForm" (ngSubmit)="addTheNotes()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Add Title</mat-label>
+      <input matInput placeholder="Note Title"  name="title" #titleInp="ngModel" [(ngModel)]="NotesToBeAdded.title" required minlength="5"/>
+      <div *ngIf="titleInp.invalid && (titleInp.touched || titleInp.dirty)">
+        <div *ngIf="titleInp?.errors?.['minlength']" >
+          <p>Minimun Length of Title should be 5 characters</p>
+        </div>
+        <div *ngIf="titleInp?.errors?.['required']">
+          <p>Notes title is required</p>
+        </div>
+      </div>
+    </mat-form-field><br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Add content</mat-label>
+      <textarea matInput placeholder="Notes content" name="content" #contentInp="ngModel" [(ngModel)]="NotesToBeAdded.content" required minlength="5"></textarea>
+      <div *ngIf="contentInp.invalid && (contentInp.touched || contentInp.dirty)" >
+        <div *ngIf="contentInp?.errors?.['minlength']" >
+          <p>min length should be 5 characters</p>
+        </div>
+        <div *ngIf="contentInp?.errors?.['required']" >
+          <p>content is required</p>
+        </div>
+      </div>
+      </mat-form-field>
+      <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" name="reminderDate" #dateInp="ngModel" [(ngModel)]="NotesToBeAdded.reminderDate" required/>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <div *ngIf="dateInp.invalid && (dateInp.touched || dateInp.dirty)" >
+        <div *ngIf="dateInp?.errors?.['required']">
+          <p>Please select date</p>
+        </div>
+      </div>
+
+    </mat-form-field><br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Category</mat-label>
+      <input matInput placeholder="category" name="category" #categoryInp="ngModel" [(ngModel)]="NotesToBeAdded.category" required />
+      <div *ngIf="categoryInp.invalid && (categoryInp.touched || categoryInp.dirty )" >
+        <div *ngIf="categoryInp?.errors?.['required']">
+          <p>Categeory is required</p>
+        </div>
+      </div>
+    </mat-form-field><br/>
+    <mat-form-field class="example-full-width">
+      <mat-label>Priority</mat-label>
+      <input matInput placeholder="Priority" name="priority" #PriorityInp="ngModel" [(ngModel)]="NotesToBeAdded.priority" required />
+    </mat-form-field><br>
+    <div >
+      <button id="Buttons" mat-raised-button extended  type="submit" [disabled]="NotesAddingData.invalid" >
+        Add Notes
+      </button>
+      <button mat-raised-button extended  type="reset" [disabled]="NotesAddingData.untouched"  >
+        Reset
+      </button>
+    </div>
+
+  </form>
+</div>

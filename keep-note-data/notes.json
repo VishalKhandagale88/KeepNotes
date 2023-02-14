@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "sample-note",
-      "content": "This is a sample note added for testing purpose",
+      "content": "Notes we hae to add and update the notes when clicked on it",
       "reminderDate": "2022-09-09T18:30:00.000Z",
       "category": "Office",
       "priority": "High"

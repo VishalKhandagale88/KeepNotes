@@ -1,0 +1,12 @@
+.example-card {
+  width: 23vw;
+  margin-right: 2vw;
+  margin-top: 2vh;
+
+}
+#cards{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 12vw;
+
+}

@@ -1,0 +1,110 @@
+
+<div id="FormDisplay">
+  <form [formGroup]="UserDataFromForm" #formsData="ngForm" novalidate (ngSubmit)="onSubmit(formsData.value)">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Registratin Form</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <div class="row">
+            <div  class="col">
+              <mat-form-field  class="full-width">
+                <input  matInput placeholder="First Name" formControlName="FirsName">
+                <mat-error *ngIf="FirsName?.errors?.['required']" >Fist Name is required</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div  class="col">
+              <mat-form-field  class="full-width">
+                <input  matInput placeholder="Last Name" formControlName="LastName">
+                <mat-error *ngIf="LastName?.errors?.['required']" >Last name is required</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div  class="col">
+              <mat-form-field  class="full-width">
+                <input  matInput placeholder="Email" email formControlName="EmailId">
+                <mat-error *ngIf="EmailId?.errors?.['required']">Email is required</mat-error>
+                <mat-error *ngIf="EmailId?.errors?.['email']" >Not an email Id</mat-error>
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="row">
+            <div  class="col">
+              <mat-form-field  class="full-width">
+                <input  matInput placeholder="Password" formControlName="Password">
+                <mat-error *ngIf="Password?.errors?.['passwordMismatch']==true" >Not matched</mat-error>
+              </mat-form-field>
+            </div>
+            <div  class="col">
+              <mat-form-field  class="full-width">
+                <input  matInput placeholder="confirm Password" formControlName="ConfirmPassword">
+                <mat-error *ngIf="ConfirmPassword?.errors?.['passwordMismatch']==true" >Password did not match</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+          <mat-radio-group formControlName="Gender" aria-label="Select an option">
+            <mat-hint> Gender </mat-hint>
+            <mat-radio-button value="Male"  >Male</mat-radio-button>
+            <mat-radio-button value="Female" >Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field  class="full-width">
+              <input  matInput placeholder="Age" formControlName="Age">
+              <mat-error *ngIf="Age?.errors?.['error1'] ==true" >Age must be 18 and above</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field  class="full-width">
+              <input  matInput placeholder="Phone" formControlName="PhoneNumber">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col">
+          <mat-form-field  class="full-width">
+            <input  matInput placeholder="Street" formControlName="street">
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field  class="full-width">
+              <input  matInput placeholder="city" formControlName="city">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field  class="full-width">
+              <input  matInput placeholder="state" formControlName="state">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field  class="full-width">
+              <input  matInput placeholder="pin code" formControlName="pinCode">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button color="accent" mat-raised-button extended type="reset" [disabled]="formsData.untouched" >
+              <!-- <mat-icon>home</mat-icon> -->
+              Reset
+            </button>
+          </div>
+          <div class="col">
+            <button color="accent" mat-raised-button extended type="submit" [disabled]="formsData.invalid" >
+              Submit
+            </button>
+          </div>
+        </div>
+        </mat-card-content>
+    </mat-card>
+  </form>
+
+</div>
