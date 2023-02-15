@@ -10,13 +10,13 @@
     <p></p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button  routerLink="../SingleCard/{{item.id}}">
+    <button mat-button  routerLink="../SingleCard/{{item.id}}"  matTooltip="open note">
       <mat-icon>note</mat-icon>
     </button>
-    <button mat-button  routerLink="../editemployee/{{item.id}}">
+    <button mat-button  routerLink="../editemployee/{{item.id}}"  matTooltip="Edit note">
       <mat-icon> border_color</mat-icon>
     </button>
-    <button mat-button>
+    <button mat-button  matTooltip="delete notes">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-card-actions>

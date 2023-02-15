@@ -20,22 +20,20 @@ export class AddnotesComponent implements OnInit {
     this.activerouteer.paramMap.subscribe(parameters=>{
       let id=parameters.get("id")??0
       if(id>0){
+
         this.httpUpdateData.getParticularNote(id).subscribe(data=>this.NotesToBeAdded=data)
       }
     })
   }
 
   addTheNotes(){
-    if(this.NotesToBeAdded.id!=0){
-      alert(this.NotesToBeAdded.id)
-      
-      alert("Hello id not equal to deo")
+    alert(this.NotesToBeAdded.id)
+    if(this.NotesToBeAdded.id!== undefined){
       this.httpUpdateData.updateParticularNotes(this.NotesToBeAdded,this.NotesToBeAdded.id).subscribe(data=>{
         alert("Notes added"+data.id);
         this.rs.navigateByUrl("home");
       })
     }else{
-      alert("New NOtes");
       this.httpUpdateData.PostData(this.NotesToBeAdded).subscribe(data=>{
         alert("Notes added "+data.id);
         this.rs.navigateByUrl("home");

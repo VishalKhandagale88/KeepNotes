@@ -13,19 +13,19 @@ export class RegistrationFormComponent {
 
   constructor(private fb: FormBuilder, private httppost:NotesService) {}
   UserDataFromForm=this.fb.group({
-    FirsName:['',[Validators.required]],
-    LastName:['',Validators.required],
-    EmailId:['',[Validators.required,Validators.email]],
-    Password:['',Validators.required],
-    ConfirmPassword:['',Validators.required],
-    Gender:[''],
+    FirsName:[null,[Validators.required]],
+    LastName:[null,Validators.required],
+    EmailId:[null,[Validators.required,Validators.email]],
+    Password:[null,Validators.required],
+    ConfirmPassword:[null,Validators.required],
+    Gender:[null],
     Age:[null,[Validators.required,this.AgeValidation]],
-    PhoneNumber:["",Validators.required],
-    street:[''],
-    city:[''],
-    state:[''],
-    pinCode:['']
-  },{Validators:this.checkConfirmPasswords})
+    PhoneNumber:[null,[Validators.required,Validators.pattern('[9876]{1,10}')]],
+    street:[null],
+    city:[null],
+    state:[null],
+    pinCode:[null,[Validators.required,Validators.pattern('[4-6]{1,6}')]],
+  },{validators:this.checkConfirmPasswords}); // validator is key here
 
   get FirsName(){
     return this.UserDataFromForm.controls['FirsName'];
@@ -39,12 +39,12 @@ export class RegistrationFormComponent {
     return this.UserDataFromForm.controls['EmailId'];
   }
 
-  get Password(){
-    return this.UserDataFromForm.controls['Password'];
-  }
+  // get Password(){
+  //   return this.UserDataFromForm.controls['Password'];
+  // }
 
   get ConfirmPassword(){
-    return this.UserDataFromForm.controls['ConfirmPassword'];
+    return this.UserDataFromForm.controls.ConfirmPassword;
   }
   get PhoneNumber(){
     return  this.UserDataFromForm.controls['PhoneNumber'];
@@ -61,7 +61,7 @@ export class RegistrationFormComponent {
   }
 
   AgeValidation(acc:AbstractControl){
-    console.log("age"+acc.value)
+
     if(acc.value<18){
       return{error1:true}
     }
@@ -70,10 +70,12 @@ export class RegistrationFormComponent {
     }
   }
 
-  checkConfirmPasswords(acc:AbstractControl){
-    console.log(acc.get("Password")?.value)
-    console.log(acc.get("ConfirmPassword")?.value)
-    if(acc.get("Password")?.value==acc.get("ConfirmPassword")?.value){
+  checkConfirmPasswords(Acc:AbstractControl){
+
+    let p =  Acc.get("Password")?.value
+    console.log("password is "+p);
+    let cp = Acc.get("ConfirmPassword")?.value
+    if(p===cp){
       return null ;
     }
     else{

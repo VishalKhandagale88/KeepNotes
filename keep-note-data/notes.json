@@ -3,9 +3,9 @@
     {
       "id": 1,
       "title": "sample-note",
-      "content": "Notes we hae to add and update the notes when clicked on it",
+      "content": "Notes we hae to add and update the notes when clicked on it updateddddd",
       "reminderDate": "2022-09-09T18:30:00.000Z",
-      "category": "Office",
+      "category": "Officekijbadkcbk",
       "priority": "High"
     },
     {
@@ -13,8 +13,8 @@
       "title": "practice-exercise: typescript",
       "content": "solution development progress - exercise 1 solution ready, exercise 2 solution to be started",
       "reminderDate": "2022-10-09T18:30:00.000Z",
-      "category": "Office",
-      "priority": "Medium"
+      "category": "assigmebtdone",
+      "priority": "Mediumlzcbuu"
     },
     {
       "id": 3,
@@ -55,6 +55,30 @@
       "category": "Office",
       "priority": "Medium",
       "id": 7
+    },
+    {
+      "title": "kudcbisdu",
+      "content": "kajcbidbc",
+      "reminderDate": "2023-02-14T18:30:00.000Z",
+      "category": "kjbcibdwibc",
+      "priority": "iabcxywdcyiwkjdbciwbje",
+      "id": 8
+    },
+    {
+      "title": "vishdsadadf",
+      "content": "adcidasbcaidc",
+      "reminderDate": "2023-02-14T18:30:00.000Z",
+      "category": "aushuciuas",
+      "priority": "aisgcay",
+      "id": 9
+    },
+    {
+      "title": "vishals notes",
+      "content": "mastry challenge redit=rection",
+      "reminderDate": "2023-02-14T18:30:00.000Z",
+      "category": "assignment",
+      "priority": "higher",
+      "id": 10
     }
   ]
 }

@@ -9,14 +9,14 @@
           <div class="row">
             <div  class="col">
               <mat-form-field  class="full-width">
-                <input  matInput placeholder="First Name" formControlName="FirsName">
+                <input  matInput placeholder="First Name" formControlName="FirsName" >
                 <mat-error *ngIf="FirsName?.errors?.['required']" >Fist Name is required</mat-error>
               </mat-form-field>
             </div>
 
             <div  class="col">
               <mat-form-field  class="full-width">
-                <input  matInput placeholder="Last Name" formControlName="LastName">
+                <input  matInput placeholder="Last Name" formControlName="LastName" >
                 <mat-error *ngIf="LastName?.errors?.['required']" >Last name is required</mat-error>
               </mat-form-field>
             </div>
@@ -35,14 +35,18 @@
             <div  class="col">
               <mat-form-field  class="full-width">
                 <input  matInput placeholder="Password" formControlName="Password">
-                <mat-error *ngIf="Password?.errors?.['passwordMismatch']==true" >Not matched</mat-error>
               </mat-form-field>
             </div>
             <div  class="col">
               <mat-form-field  class="full-width">
                 <input  matInput placeholder="confirm Password" formControlName="ConfirmPassword">
-                <mat-error *ngIf="ConfirmPassword?.errors?.['passwordMismatch']==true" >Password did not match</mat-error>
+
               </mat-form-field>
+            </div>
+          </div>
+          <div class="row" *ngIf="UserDataFromForm.controls['ConfirmPassword'].touched" >
+            <div class="col">
+              <mat-error *ngIf="UserDataFromForm?.errors?.['passwordMismatch']==true" >Password did not match</mat-error>
             </div>
           </div>
           <div class="row">
@@ -56,12 +60,15 @@
           <div class="col">
             <mat-form-field  class="full-width">
               <input  matInput placeholder="Age" formControlName="Age">
+              <mat-error *ngIf="Age?.errors?.['required']" >Age is required</mat-error>
               <mat-error *ngIf="Age?.errors?.['error1'] ==true" >Age must be 18 and above</mat-error>
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field  class="full-width">
               <input  matInput placeholder="Phone" formControlName="PhoneNumber">
+              <mat-error *ngIf="PhoneNumber?.errors?.['pattern']" >phone number should start 9/8/7/6</mat-error>
+              <mat-error *ngIf="PhoneNumber?.errors?.['required']" >pnone nuber is required</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -86,7 +93,10 @@
         <div class="row">
           <div class="col">
             <mat-form-field  class="full-width">
-              <input  matInput placeholder="pin code" formControlName="pinCode">
+              <input  matInput placeholder="pin code" formControlName="pinCode" >
+              <mat-error *ngIf="pinCode?.errors?.['required']" >Pin code is required</mat-error>
+              <mat-error *ngIf="pinCode?.errors?.['pattern']">Pin code contain 6 digists only</mat-error>
+
             </mat-form-field>
           </div>
         </div>

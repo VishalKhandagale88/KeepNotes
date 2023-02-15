@@ -24,6 +24,7 @@ import { NotesContainerComponent } from './notes-container/notes-container.compo
 import { ErrorcomponentComponent } from './errorcomponent/errorcomponent.component';
 import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.module';
 import { SingleCardComponent } from './single-card/single-card.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { SingleCardComponent } from './single-card/single-card.component';
     MatNativeDateModule,
     RouterModule,
     AppRoutingModuleModule,
+    MatTooltipModule
 
 
 
