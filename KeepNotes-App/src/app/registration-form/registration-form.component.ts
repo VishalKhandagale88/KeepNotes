@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { CheckBeforeLeavingPage } from '../CheckBeforeLeavingPage';
 import { NotesService } from '../services/notes.service';
 import { usersDetails } from '../userdatas';
 
@@ -8,10 +9,19 @@ import { usersDetails } from '../userdatas';
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.css']
 })
-export class RegistrationFormComponent {
+export class RegistrationFormComponent implements CheckBeforeLeavingPage {
 
 
   constructor(private fb: FormBuilder, private httppost:NotesService) {}
+  canClosePage(): boolean {
+
+    if(this.UserDataFromForm.touched){
+     var val = confirm("Do you want to leave this page")
+      return val;
+    }else{
+      return false;
+    }
+  }
   UserDataFromForm=this.fb.group({
     FirsName:[null,[Validators.required]],
     LastName:[null,Validators.required],

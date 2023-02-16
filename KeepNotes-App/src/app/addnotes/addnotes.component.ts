@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CheckBeforeLeavingPage } from '../CheckBeforeLeavingPage';
 import { note } from '../notes';
 import { NotesService } from '../services/notes.service';
 
@@ -8,7 +9,7 @@ import { NotesService } from '../services/notes.service';
   templateUrl: './addnotes.component.html',
   styleUrls: ['./addnotes.component.css']
 })
-export class AddnotesComponent implements OnInit {
+export class AddnotesComponent implements OnInit,CheckBeforeLeavingPage {
 
     // constructor(private httppost : NotesService){}
 
@@ -16,6 +17,15 @@ export class AddnotesComponent implements OnInit {
     //   this.httppost.PostData(data).subscribe(data=>{alert(`Notes added with id ${data.id}`)})
     // }
     constructor(private httpUpdateData : NotesService, private rs : Router , private activerouteer:ActivatedRoute){}
+  canClosePage(): boolean {
+
+    if(this.NotesToBeAdded.title=="" || this.NotesToBeAdded.category=="" || this.NotesToBeAdded.content=="" || this.NotesToBeAdded.priority){
+      var val=confirm("Do you want to leave this page");
+      return val;
+    }else{
+      return false;
+    }
+  }
   ngOnInit(): void {
     this.activerouteer.paramMap.subscribe(parameters=>{
       let id=parameters.get("id")??0
@@ -52,5 +62,6 @@ export class AddnotesComponent implements OnInit {
     //     this.httpUpdateData.PostData(notesdata).subscribe(data=>{alert(`Notes Added with ${data.id}`)})
 
     // }
+
 
 }

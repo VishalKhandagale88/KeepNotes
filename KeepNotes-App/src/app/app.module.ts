@@ -25,6 +25,7 @@ import { ErrorcomponentComponent } from './errorcomponent/errorcomponent.compone
 import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.module';
 import { SingleCardComponent } from './single-card/single-card.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { LogInPageComponent } from './log-in-page/log-in-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     NotesContainerComponent,
     ErrorcomponentComponent,
     SingleCardComponent,
+    LogInPageComponent,
 
   ],
   imports: [

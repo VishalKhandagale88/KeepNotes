@@ -23,8 +23,11 @@ export class NotesService {
   PostUserDetails(data:usersDetails):Observable<usersDetails>{
     return this.httpClient.post<usersDetails>("http://localhost:3001/userdata",data)
   }
-  getParticularNote(id:any):Observable<note>{
-    return this.httpClient.get<note>(this.url+"/"+id)
+  getParticularUserDetails(id:any):Observable<usersDetails>{
+    return this.httpClient.get<usersDetails>("http://localhost:3001/userdata/"+id)
+  }
+  getParticularNote(pword:any):Observable<note>{
+    return this.httpClient.get<note>(this.url+"/"+pword)
   }
 
   updateParticularNotes(notes:note,id:any):Observable<note>{

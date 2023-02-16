@@ -7,23 +7,31 @@ import { RegistrationFormComponent } from '../registration-form/registration-for
 import { ErrorcomponentComponent } from '../errorcomponent/errorcomponent.component';
 import { NotesContainerComponent } from '../notes-container/notes-container.component';
 import { SingleCardComponent } from '../single-card/single-card.component';
+import { LogInPageComponent } from '../log-in-page/log-in-page.component';
+import { MyActiveGaurdGuard } from '../my-active-gaurd.guard';
+import { CheckPagesLeavingGuard } from '../check-pages-leaving.guard';
 
 const routes : Routes=[
   {
     path:"",
-    component:NotesContainerComponent
+    component:LogInPageComponent
   },
   {
     path:"home",
-    component:NotesContainerComponent
+    component:NotesContainerComponent,
+
   },
   {
     path:"AddNotes",
-    component:AddnotesComponent
+    component:AddnotesComponent,
+    canActivate:[MyActiveGaurdGuard],
+    canDeactivate:[CheckPagesLeavingGuard]
+
   },
   {
     path:"AddUser",
-    component:RegistrationFormComponent
+    component:RegistrationFormComponent,
+    canDeactivate:[CheckPagesLeavingGuard]
   },
   {
     path:"SingleCard/:id",
@@ -32,6 +40,10 @@ const routes : Routes=[
   {
     path:"editemployee/:id",
     component:AddnotesComponent
+  },
+  {
+    path:"loginpage",
+    component:LogInPageComponent
   },
 
   {
