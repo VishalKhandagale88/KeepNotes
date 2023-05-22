@@ -18,8 +18,7 @@ const routes : Routes=[
   },
   {
     path:"home",
-    component:NotesContainerComponent,
-
+    component:NotesContainerComponent
   },
   {
     path:"AddNotes",

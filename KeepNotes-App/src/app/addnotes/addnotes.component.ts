@@ -10,15 +10,8 @@ import { NotesService } from '../services/notes.service';
   styleUrls: ['./addnotes.component.css']
 })
 export class AddnotesComponent implements OnInit,CheckBeforeLeavingPage {
-
-    // constructor(private httppost : NotesService){}
-
-    // AddNotes(data:any){
-    //   this.httppost.PostData(data).subscribe(data=>{alert(`Notes added with id ${data.id}`)})
-    // }
     constructor(private httpUpdateData : NotesService, private rs : Router , private activerouteer:ActivatedRoute){}
   canClosePage(): boolean {
-
     if(this.NotesToBeAdded.title=="" || this.NotesToBeAdded.category=="" || this.NotesToBeAdded.content=="" || this.NotesToBeAdded.priority){
       var val=confirm("Do you want to leave this page");
       return val;
@@ -30,8 +23,7 @@ export class AddnotesComponent implements OnInit,CheckBeforeLeavingPage {
     this.activerouteer.paramMap.subscribe(parameters=>{
       let id=parameters.get("id")??0
       if(id>0){
-
-        this.httpUpdateData.getParticularNote(id).subscribe(data=>this.NotesToBeAdded=data)
+        this.httpUpdateData.getParticularNote(id).subscribe(data=>{this.NotesToBeAdded=data;console.log(data)})
       }
     })
   }
@@ -58,10 +50,4 @@ export class AddnotesComponent implements OnInit,CheckBeforeLeavingPage {
       category: '',
       priority: ''
     }
-    // udpateNotsDB(notesdata:note){
-    //     this.httpUpdateData.PostData(notesdata).subscribe(data=>{alert(`Notes Added with ${data.id}`)})
-
-    // }
-
-
 }

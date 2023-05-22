@@ -58,9 +58,6 @@ import { LogInPageComponent } from './log-in-page/log-in-page.component';
     RouterModule,
     AppRoutingModuleModule,
     MatTooltipModule
-
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
